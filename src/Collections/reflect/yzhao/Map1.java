@@ -1,6 +1,7 @@
 package Collections.reflect.yzhao;
 
 import java.util.*;
+import java.lang.Iterable;
 
 public class Map1 {
 
@@ -57,6 +58,15 @@ public class Map1 {
         //printDetail(map);
         //map.clear();
         //printDetail(map);
+
+
+        System.out.println("-----------------------");
+
+        Iterator<Map.Entry<String, String>> iter = map.entrySet().iterator();
+        while(iter.hasNext()){
+            Map.Entry<String, String> entry = iter.next();
+            System.out.println("Key: " + entry.getKey() + " , Value: " + entry.getValue());
+        }
 
 
     }
