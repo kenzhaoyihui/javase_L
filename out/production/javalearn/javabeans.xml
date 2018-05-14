@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloworld" class="yzhao.spring.io.EventHandler.Helloworld">
+        <property name="message" value="GG"/>
+    </bean>
+
+    <bean id="startEventHandler" class="yzhao.spring.io.EventHandler.StartEventHandler"/>
+    <bean id="stopEventHandler" class="yzhao.spring.io.EventHandler.StopEventHandler"/>
+</beans>
