@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="helloworld" class="yzhao.spring.io.helloworld1" scope="prototype" init-method="init" destroy-method="destroy">
+        <!--<property name="greet" ref="greethelloworld"/>-->
+        <!--<constructor-arg ref="greethelloworld"/>-->
+        <property name="messages" value="Hello yzhao!" />
+        <property name="id" value="2004"/>
+        <property name="greet">
+            <bean id="testgreet" class="yzhao.spring.io.Greet"/>
+        </property>
+    </bean>
+
+    <bean id="greethelloworld" class="yzhao.spring.io.Greet"></bean>
+
+    <bean class="yzhao.spring.io.InitHelloWorld"></bean>
+
+    <bean id="lang" class="yzhao.spring.io.helloworld1">
+        <constructor-arg ref="greethelloworld"/>
+        <constructor-arg type="int" value="2003"/>
+        <constructor-arg type="java.lang.String" value="yh"/>
+    </bean>
+
+    <bean id="helloworldchild" class="yzhao.spring.io.helloworld1" scope="prototype" init-method="init" destroy-method="destroy" parent="helloworld"
+        p:messages="hahahahaha">
+    </bean>
+
+</beans>

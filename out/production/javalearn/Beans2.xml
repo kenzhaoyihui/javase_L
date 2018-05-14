@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="java" class="yzhao.spring.io.CollectionInjection.JavaCollection">
+        <property name="addressList">
+            <null></null>
+            <!--<list>-->
+                <!--<description>Lis</description>-->
+                <!--<value>yzhao</value>-->
+                <!--<value>lj</value>-->
+                <!--<value>child</value>-->
+                <!--<value>child</value>-->
+            <!--</list>-->
+        </property>
+
+        <property name="addressMap">
+            <map>
+                <description>MAP</description>
+                <entry key="1" value="yzhao"/>
+                <entry key="2" value="lj"/>
+                <entry key="3" value="child"/>
+                <entry key="4" value="child"/>
+            </map>
+        </property>
+
+        <property name="addressProp">
+            <props>
+                <prop key="one">yzhao</prop>
+                <prop key="two">lj</prop>
+                <prop key="three">child</prop>
+                <prop key="four">child</prop>
+            </props>
+        </property>
+
+        <property name="addressSet">
+            <set>
+                <value>yzhao</value>
+                <value>lj</value>
+                <value>child</value>
+                <value>child</value>
+            </set>
+        </property>
+
+    </bean>
+</beans>
