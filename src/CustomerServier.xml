@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customerService" class="yzhao.spring.io.CustomerService1.CustomerService">
+        <property name="name" value="Calvin ZYH"/>
+        <property name="url" value="http://www.baidu.com"/>
+     </bean>
+
+    <bean id="beforeMethod" class="yzhao.spring.io.CustomerService1.BeforeMethd"></bean>
+    <bean id="afterReturningMethod" class="yzhao.spring.io.CustomerService1.AfterReturningMethod"></bean>
+    <bean id="throwException" class="yzhao.spring.io.CustomerService1.ThrowException"></bean>
+    <bean id="aroundMethod" class="yzhao.spring.io.CustomerService1.AroundMethod"></bean>
+
+    <bean id="nameMatchMethodPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="printName"/>
+    </bean>
+
+    <bean id="defaultPointcutAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut" ref="nameMatchMethodPointcut"/>
+        <property name="advice" ref="aroundMethod"/>
+    </bean>
+
+    <bean id="regexpMethodPointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="patterns">
+            <list>
+                <value>.*Url.*</value>
+            </list>
+        </property>
+        <property name="advice" ref="aroundMethod"/>
+    </bean>
+
+    <!--<bean id="customerServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+        <!--<property name="target" ref="customerService"/>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;<value>beforeMethod</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>afterReturningMethod</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>throwException</value>&ndash;&gt;-->
+                <!--&lt;!&ndash;<value>defaultPointcutAdvisor</value>&ndash;&gt;-->
+                <!--<value>regexpMethodPointcutAdvisor</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--auto-proxy-->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Service</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <!--<value>beforeMethod</value>-->
+                <!--<value>afterReturningMethod</value>-->
+                <!--<value>throwException</value>-->
+                <!--<value>defaultPointcutAdvisor</value>-->
+                <value>regexpMethodPointcutAdvisor</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
+</beans>
