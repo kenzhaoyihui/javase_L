@@ -1,10 +1,19 @@
 package yzhao.spring.io.LogXMLAOP;
 
+import org.aspectj.lang.annotation.*;
+
+@Aspect
 public class Logging {
+
+    @Pointcut("execution(* yzhao.spring.io.LogXMLAOP.*.*(..))")
+    public void selectAll(){
+
+    }
     /**
      * This is the method which I would like to execute
      * before a selected method execution
      */
+    @Before("selectAll()")
     public void beforeAdvice(){
         System.out.println("Before...");
     }
@@ -13,6 +22,7 @@ public class Logging {
      * This is the method which I would like to execute
      * after a selected method execution
      */
+    @After("selectAll()")
     public void afterAdvice(){
         System.out.println("After...");
     }
@@ -23,6 +33,7 @@ public class Logging {
      *
      * @param retVal
      */
+    @AfterReturning(pointcut = "selectAll()", returning = "retVal")
     public void afterReturningAdvice(Object retVal){
         System.out.println("Returning: " + retVal.toString());
     }
@@ -33,6 +44,8 @@ public class Logging {
      *
      * @param e
      */
+
+    @AfterThrowing(pointcut = "selectAll()", throwing = "e")
     public void AfterThrowingAdvice(IllegalArgumentException e){
         System.out.println("There has been an exception: " + e.toString());
     }

@@ -7,6 +7,8 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <aop:aspectj-autoproxy/>
+
     <bean id="student" class="yzhao.spring.io.LogXMLAOP.Student">
         <property name="name" value="ZYH"/>
         <property name="age" value="22"/>
@@ -15,14 +17,19 @@
     <!-- Definition for logging aspect-->
     <bean id="logging" class="yzhao.spring.io.LogXMLAOP.Logging"/>
 
-    <aop:config>
-        <aop:aspect id="log" ref="logging">
-            <aop:pointcut id="selectAll" expression="execution(* yzhao.spring.io.LogXMLAOP.Student.getName(..))"/>
-            <aop:before method="beforeAdvice" pointcut-ref="selectAll"/>
-            <aop:after method="afterAdvice" pointcut-ref="selectAll"/>
-            <aop:after-returning method="afterReturningAdvice" pointcut-ref="selectAll" returning="retVal"/>
-            <aop:after-throwing method="AfterThrowingAdvice" pointcut-ref="selectAll" throwing="e"/>
-        </aop:aspect>
-    </aop:config>
+
+
+    <!--<aop:config>-->
+        <!--<aop:aspect id="log" ref="logging">-->
+            <!--&lt;!&ndash;<aop:pointcut id="selectAll" expression="execution(* yzhao.spring.io.LogXMLAOP.Student.getName(..))"/>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;the first "*" is class name, second "*" is method name&ndash;&gt;-->
+            <!--<aop:pointcut id="selectAll" expression="execution(* yzhao.spring.io.LogXMLAOP.*.*(..))"/>-->
+            <!--<aop:before method="beforeAdvice" pointcut-ref="selectAll"/>-->
+            <!--<aop:after method="afterAdvice" pointcut-ref="selectAll"/>-->
+            <!--<aop:after-returning method="afterReturningAdvice" pointcut-ref="selectAll" returning="retVal"/>-->
+            <!--<aop:after-throwing method="AfterThrowingAdvice" pointcut-ref="selectAll" throwing="e"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
 </beans>
