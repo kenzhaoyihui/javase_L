@@ -13,6 +13,7 @@
           <file>file://$MODULE_DIR$/src/beans-sql.xml</file>
           <file>file://$MODULE_DIR$/src/EL.xml</file>
           <file>file://$MODULE_DIR$/src/CustomerServier.xml</file>
+          <file>file://$MODULE_DIR$/src/bean_student.xml</file>
         </fileset>
       </configuration>
     </facet>
