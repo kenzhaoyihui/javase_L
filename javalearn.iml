@@ -11,6 +11,7 @@
           <file>file://$MODULE_DIR$/src/singer.xml</file>
           <file>file://$MODULE_DIR$/src/javabeans.xml</file>
           <file>file://$MODULE_DIR$/src/beans-sql.xml</file>
+          <file>file://$MODULE_DIR$/src/EL.xml</file>
         </fileset>
       </configuration>
     </facet>

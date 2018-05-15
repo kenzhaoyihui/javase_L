@@ -7,12 +7,25 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd" >
 
+    <!--Method1-->
     <context:property-placeholder location="classpath:db.properties"/>
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="user" value="${user}"/>
+        <property name="user" value="root"/>
         <property name="password" value="${password}"/>
         <property name="driverClass" value="${driverclass}"/>
         <property name="jdbcUrl" value="${jdbcurl}"/>
     </bean>
+
+    <!--Method2-->
+    <!--<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">-->
+        <!--<property name="location" value="db.properties"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="${driverclass}" />-->
+        <!--<property name="password" value="${password}" />-->
+        <!--<property name="username" value="${user}" />-->
+        <!--<property name="url" value="${jdbcurl}" />-->
+    <!--</bean>-->
 
 </beans>
