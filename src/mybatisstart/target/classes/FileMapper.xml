@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="yzhao.mybatis.film.FilmMapper">
+    <resultMap id="filmResultMap" type="Film">
+        <id property="id" column="id"/>
+        <result property="fname" column="f_name"/>
+    </resultMap>
+    
+    
+    <select id="getAllFilm" resultMap="filmResultMap">
+        select * from film;
+    </select>
+    
+    <select id="getFilmById" parameterType="int" resultMap="filmResultMap">
+        select * from film where id=#{id};
+    </select>
+    
+    <insert id="insertFilm" parameterType="Film" keyProperty="id" useGeneratedKeys="true">
+        insert into film (f_name) values (#{fname});
+    </insert>
+
+    <update id="updateFilm" parameterType="Film">
+        update film
+        <trim prefix="set" suffixOverrides=",">
+            <if test="fname != null">
+                f_name = #{fname}
+            </if>
+        </trim>
+        where id = #{id};
+    </update>
+
+    <delete id="deleteFilm" parameterType="int">
+        delete from film where id = #{id}
+    </delete>
+</mapper>
