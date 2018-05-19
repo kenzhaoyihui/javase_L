@@ -1,5 +1,8 @@
 package yzhao.mybatis.film;
 
+import org.apache.ibatis.annotations.Param;
+
+import javax.annotation.security.PermitAll;
 import java.util.List;
 
 // Data access interface
@@ -14,5 +17,5 @@ public interface FilmMapper {
 
     public void updateFilm(Film film);
 
-    public void deleteFilm(int id);
+    public void deleteFilm(@Param("ID") int id);
 }

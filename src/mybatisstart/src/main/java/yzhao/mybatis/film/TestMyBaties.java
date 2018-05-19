@@ -46,7 +46,7 @@ public class TestMyBaties extends TestCase{
             session.commit();
 
             //5.3
-            mapper.deleteFilm(2);
+            mapper.deleteFilm(3);
             session.commit();
 
             //5.4

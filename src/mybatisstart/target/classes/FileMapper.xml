@@ -32,6 +32,6 @@
     </update>
 
     <delete id="deleteFilm" parameterType="int">
-        delete from film where id = #{id}
+        delete from film where id = #{ID}
     </delete>
 </mapper>
