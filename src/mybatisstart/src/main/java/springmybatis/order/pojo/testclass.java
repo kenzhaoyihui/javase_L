@@ -1,6 +1,7 @@
 package springmybatis.order.pojo;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class testclass {
@@ -71,6 +72,9 @@ public class testclass {
         }
 
         System.out.println("----------------------------");
+
+
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<String, String>();
 
 
 //        Set<Map.Entry<Integer, String>> entries = map1.entrySet();
