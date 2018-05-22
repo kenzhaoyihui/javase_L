@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee.xsd"
+       default-autowire="byName" default-lazy-init="false">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
+        <property name="url" value="jdbc:mariadb://127.0.0.1:3306/test?characterEncoding=utf-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--dataSource属性指定要用到的连接池-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--configLocation属性指定mybatis的核心配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--<property name="mapperLocations" value="mappers/*.xml"/>-->
+    </bean>
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.yzhao.mapper"/>
+    </bean>
+
+    <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--&lt;!&ndash;sqlSessionFactory属性指定要用到的SqlSessionFactory实例&ndash;&gt;-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+        <!--&lt;!&ndash;mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象&ndash;&gt;-->
+        <!--<property name="mapperInterface" value="com.yzhao.mapper.UserMapper"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="orderMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
+        <!--&lt;!&ndash;sqlSessionFactory属性指定要用到的SqlSessionFactory实例&ndash;&gt;-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+        <!--&lt;!&ndash;mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象&ndash;&gt;-->
+        <!--<property name="mapperInterface" value="com.yzhao.mapper.OrderMapper"/>-->
+    <!--</bean>-->
+
+</beans>
