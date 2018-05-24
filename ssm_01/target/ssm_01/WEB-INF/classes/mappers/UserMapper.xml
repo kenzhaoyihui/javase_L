@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yzhao.mapper.UserMapper">
+    <resultMap id="resultUser" type="com.yzhao.pojo.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="mobile" column="mobile"/>
+    </resultMap>
+
+    <resultMap id="resultUserOrders" type="com.yzhao.pojo.Order">
+        <id property="orderId" column="order_id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="money" column="money"/>
+        <result property="userId" column="user_id"/>
+
+        <association property="user" javaType="com.yzhao.pojo.User">
+            <id property="id" column="id"/>
+            <result property="username" column="username"/>
+            <result property="mobile" column="mobile"/>
+        </association>
+    </resultMap>
+
+    <select id="getUserById" resultMap="resultUser" parameterType="int">
+        select * from user1 where id=#{id}
+    </select>
+
+    <select id="getOrdersByUserId" resultMap="resultUserOrders" parameterType="int">
+        select u.*,o.* from `user1` u, `order` o where u.id=o.user_id and u.id=#{id}
+    </select>
+
+    <select id="getOrderListPage" resultMap="resultUserOrders" parameterType="int">
+        select u.*,o.* from `user1` u, `order` o where u.id=o.user_id and u.id=#{userid}
+    </select>
+</mapper>
