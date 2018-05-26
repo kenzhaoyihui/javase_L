@@ -1,4 +1,77 @@
 package javaioexample.aio.client;
 
-public class AsyncClientHandler {
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.nio.channels.CompletionHandler;
+import java.util.concurrent.CountDownLatch;
+
+public class AsyncClientHandler implements CompletionHandler<Void, AsyncClientHandler> , Runnable{
+
+    private AsynchronousSocketChannel clientChannel;
+    private String host;
+    private int port;
+    private CountDownLatch latch;
+
+    public AsyncClientHandler(String host, int port){
+        this.host = host;
+        this.port = port;
+        try{
+            clientChannel = AsynchronousSocketChannel.open();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void completed(Void result, AsyncClientHandler attachment) {
+
+        System.out.println("The client is connected server successfully...");
+    }
+
+    @Override
+    public void failed(Throwable exc, AsyncClientHandler attachment) {
+
+        System.out.println("The client connected server failed...");
+        try{
+            clientChannel.close();
+            latch.countDown();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+        //创建CountDownLatch等待
+        latch = new CountDownLatch(1);
+        //发起异步连接操作，回调参数就是这个类本身，如果连接成功会回调completed方法
+        clientChannel.connect(new InetSocketAddress(host, port), this, this);
+
+        try{
+            latch.await();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+        try{
+            clientChannel.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void sendMsg(String msg){
+        byte[] bytes = msg.getBytes();
+
+        ByteBuffer writeBuffer =  ByteBuffer.allocate(bytes.length);
+
+        writeBuffer.put(bytes);
+
+        writeBuffer.flip();
+
+        //异步写
+        clientChannel.write(writeBuffer, writeBuffer, new WriteHandler(clientChannel, latch));
+    }
 }
