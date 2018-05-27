@@ -1,6 +1,7 @@
 package Collections.reflect.yzhao;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RemoveListElem {
 
@@ -49,6 +50,9 @@ public class RemoveListElem {
 
 //        List newList = new ArrayList(new HashSet(list));
 //        System.out.println(newList);
+
+        List<String> newList = list.stream().distinct().collect(Collectors.toList());
+        System.out.println(newList);
 
     }
 }

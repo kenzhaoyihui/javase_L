@@ -14,7 +14,7 @@ import java.io.*;
 class User implements Serializable{
     private static final long serialVersionUID = 1L;
 
-    public  static String username;
+    public   static String username;
     private transient String password;
 
 
