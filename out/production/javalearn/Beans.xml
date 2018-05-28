@@ -27,4 +27,8 @@
         p:messages="hahahahaha">
     </bean>
 
+    <bean id="hello" class="yzhao.spring.io.hello" init-method="init" destroy-method="destroy">
+        <property name="message" value="hahhaha"/>
+    </bean>
+
 </beans>
