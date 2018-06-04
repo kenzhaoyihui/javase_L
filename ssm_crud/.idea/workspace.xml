@@ -258,8 +258,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-75" />
-    <option name="y" value="519" />
+    <option name="x" value="157" />
+    <option name="y" value="1015" />
     <option name="width" value="1717" />
     <option name="height" value="646" />
   </component>
@@ -663,7 +663,7 @@
     <option name="totallyTimeSpent" value="18689000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-75" y="519" width="1717" height="646" extended-state="0" />
+    <frame x="157" y="1015" width="1717" height="646" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
