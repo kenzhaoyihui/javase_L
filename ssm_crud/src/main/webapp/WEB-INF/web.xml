@@ -22,7 +22,7 @@
 
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc-servelt.xml</param-value>
+      <param-value>classpath:spring-mvc-servlet.xml</param-value>
     </init-param>
 
     <load-on-startup>1</load-on-startup>

@@ -9,9 +9,15 @@
         <setting name="lazyLoadingEnabled" value="true"/>
     </settings>
 
+
     <typeAliases>
         <package name="com.yzhao.crud.bean"/>
     </typeAliases>
+    
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+    
 
 
     <!--mapper file path-->

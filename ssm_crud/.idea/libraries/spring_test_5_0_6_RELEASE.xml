@@ -2,6 +2,7 @@
   <library name="spring-test-5.0.6.RELEASE">
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/spring-test-5.0.6.RELEASE.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/pagehelper-5.1.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
