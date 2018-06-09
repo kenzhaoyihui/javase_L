@@ -1,4 +1,5 @@
-package com.yzhao.crud.test;
+package yzhao.blog.test;
+
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -9,10 +10,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MBGTTest {
+public class MbgTest {
 
     public static void  main(String[] args) throws Exception{
-        List<String> warnings = new ArrayList<>();
+        List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
         File configFile = new File("mbg.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
@@ -24,3 +25,4 @@ public class MBGTTest {
 
     }
 }
+

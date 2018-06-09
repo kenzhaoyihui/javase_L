@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+    <!--<properties resource="resources/db.properties"/>-->
+
+    <context id="MariaDBTables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
+                        connectionURL="jdbc:mariadb://127.0.0.1:3306/blog"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+
+        <!-- Java bean location-->
+        <javaModelGenerator targetPackage="yzhao.blog.bean" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- Sql mapper file location-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- DAO interface location, mapper interface-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="yzhao.blog.dao"  targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+            <!--<ignoreColumn column="FRED" />-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+
+        <table tableName="admin" domainObjectName="Admin"></table>
+        <table tableName="admin_login_log" domainObjectName="AdminLoginLog"></table>
+        <table tableName="article" domainObjectName="Article"></table>
+        <table tableName="catalog" domainObjectName="Catalog"></table>
+        <table tableName="comment" domainObjectName="Comment"></table>
+
+
+    </context>
+</generatorConfiguration>
