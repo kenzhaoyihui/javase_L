@@ -194,6 +194,13 @@
       <version>1.7.25</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/cn.meddb/ueditor -->
+    <dependency>
+      <groupId>cn.meddb</groupId>
+      <artifactId>ueditor</artifactId>
+      <version>20180110</version>
+    </dependency>
+
 
 
 

@@ -367,4 +367,18 @@
       email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+
+  <select id="queryAll" resultMap="ResultMapWithBLOBs">
+    SELECT *
+    from comment
+    where article_id = #{article_id}
+    ORDER BY id DESC
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="countAllNum" resultType="java.lang.Integer">
+    SELECT count(*) FROM comment
+  </select>
 </mapper>
