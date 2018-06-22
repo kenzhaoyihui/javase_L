@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+
+All Students
+<ul th:each="stu, stuSta:${sList}">
+    <li>
+        ID: <span th:text="${stuSta.index}"/><br/>
+        Name: <th:block th:text="${stu.name}"></th:block><br/>
+        Age: <div th:text="${stu.age}"></div><br/>
+    </li>
+</ul>
+</body>
+</html>
