@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -72,7 +73,9 @@ public class SystemUserDaoImpl implements SystemUserDao {
                 ps.setString(1, user.getUsername());
                 ps.setString(2,user.getPassword());
                 ps.setString(3,user.getIsRoot());
-                ps.setDate(4,new java.sql.Date(user.getRegisterDate().getTime()));
+                //ps.setDate(4,new java.sql.Date(user.getRegisterDate().getTime())); //Lost the hour, minute, second
+                //ps.setDate(4, new java.sql.Date((user.getRegisterDate().getTime())));
+                ps.setString(4, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(user.getRegisterDate()));
                 ps.setInt(5,user.getStatus());
                 return ps;
             }
