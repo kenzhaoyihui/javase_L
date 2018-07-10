@@ -30,6 +30,30 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-mockmvc -->
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<version>2.0.0.RELEASE</version>
+			<!--<scope>test</scope>-->
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-parent</artifactId>
+			<version>2.0.3.RELEASE</version>
+			<type>pom</type>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -112,19 +136,19 @@
 
 
 
-		<!--&lt;!&ndash; https://mvnrepository.com/artifact/com.mchange/c3p0 &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>com.mchange</groupId>-->
-			<!--<artifactId>c3p0</artifactId>-->
-			<!--<version>0.9.5.2</version>-->
-		<!--</dependency>-->
+		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.2</version>
+		</dependency>
 
-		<!--&lt;!&ndash; https://mvnrepository.com/artifact/com.alibaba/druid &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>com.alibaba</groupId>-->
-			<!--<artifactId>druid</artifactId>-->
-			<!--<version>1.1.10</version>-->
-		<!--</dependency>-->
+		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.1.10</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -133,6 +157,128 @@
 			<version>4.12</version>
 			<!--<scope>test</scope>-->
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+		<!--<dependency>-->
+			<!--<groupId>javax.persistence</groupId>-->
+			<!--<artifactId>persistence-api</artifactId>-->
+			<!--<version>1.0.2</version>-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
+		<!--<dependency>-->
+			<!--<groupId>org.hibernate.javax.persistence</groupId>-->
+			<!--<artifactId>hibernate-jpa-2.0-api</artifactId>-->
+			<!--<version>1.0.1.Final</version>-->
+		<!--</dependency>-->
+
+
+		<!-- Spring Data JPA 依赖 :: 数据持久层框架 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- h2 数据源连接驱动 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<!--<version>2.0.3.RELEASE</version>-->
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.8.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
+			<!--<version>2.0.3.RELEASE</version>-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
+			<!--<version>2.0.3.RELEASE</version>-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.data</groupId>-->
+			<!--<artifactId>spring-data-redis</artifactId>-->
+			<!--<version>2.0.8.RELEASE</version>-->
+		<!--</dependency>-->
+
+
+
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<!--&lt;!&ndash; https://mvnrepository.com/artifact/redis.clients/jedis &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>redis.clients</groupId>-->
+			<!--<artifactId>jedis</artifactId>-->
+			<!--<version>2.9.0</version>-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+
+		<!--&lt;!&ndash; https://mvnrepository.com/artifact/io.lettuce/lettuce-core &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>io.lettuce</groupId>-->
+			<!--<artifactId>lettuce-core</artifactId>-->
+			<!--&lt;!&ndash;<version>5.1.0.M1</version>&ndash;&gt;-->
+		<!--</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<!--<dependency>-->
+			<!--<groupId>com.fasterxml.jackson.core</groupId>-->
+			<!--<artifactId>jackson-databind</artifactId>-->
+			<!--<version>2.9.6</version>-->
+		<!--</dependency>-->
+
+		<!--&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>com.fasterxml.jackson.core</groupId>-->
+			<!--<artifactId>jackson-annotations</artifactId>-->
+			<!--<version>2.9.6</version>-->
+		<!--</dependency>-->
+
+		<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.data</groupId>-->
+			<!--<artifactId>spring-data-commons</artifactId>-->
+			<!--<version>2.0.8.RELEASE</version>-->
+		<!--</dependency>-->
 
 
 
@@ -147,6 +293,53 @@
 				<configuration>
 					<fork>true</fork>
 				</configuration>
+			</plugin>
+
+			<!--<plugin>-->
+				<!--<groupId>org.asciidoctor</groupId>-->
+				<!--<artifactId>asciidoctor-maven-plugin</artifactId>-->
+				<!--<version>1.5.3</version>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>generate-docs</id>-->
+						<!--<phase>prepare-package</phase>-->
+						<!--<goals>-->
+							<!--<goal>process-asciidoc</goal>-->
+						<!--</goals>-->
+						<!--<configuration>-->
+							<!--<backend>html</backend>-->
+							<!--<doctype>book</doctype>-->
+						<!--</configuration>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<!--<dependencies>-->
+					<!--<dependency>-->
+						<!--<groupId>org.springframework.restdocs</groupId>-->
+						<!--<artifactId>spring-restdocs-asciidoctor</artifactId>-->
+						<!--<version>2.0.1.RELEASE</version>-->
+					<!--</dependency>-->
+				<!--</dependencies>-->
+			<!--</plugin>-->
+
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-docs</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<sourceDocumentName>index.adoc</sourceDocumentName>
+							<backend>html</backend>
+							<attributes>
+								<snippets>${project.build.directory}/restdoc</snippets>
+							</attributes>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

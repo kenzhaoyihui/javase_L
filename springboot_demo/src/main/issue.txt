@@ -1,0 +1,3 @@
+Some problems with SpringBoot Integrated with Redis, Should do more testing.
+
+The later learning will be at the directory "springboot"

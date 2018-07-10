@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Manage</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+</head>
+<body>
+<div class="contentDiv">
+    <h5>Spring boot -- validating form input</h5>
+    <legend>
+        <strong>User Manage</strong>
+    </legend>
+
+    <form th:action="@{/users/{action}(action=$(action})}" method="post" class="form-horizontal">
+        <input type="hidden" name="id" th:value="{user.id}">
+
+        <div class="form-group">
+            <label for="user_name" class="col-sm-2 control-label">Name: </label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="user_name" name="name" th:value="${user.name}" th:field="*{user.name}">
+            </div>
+            <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('user.name')}" th:errors="*{user.name}">Name Error!</label>
+        </div>
+
+        <div class="form-group">
+            <label for="user_age" class="col-sm-2 control-label">Age:</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" id="user_age" name="age" th:value="${user.age}" th:field="*{user.age}" />
+            </div>
+            <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('user.age')}" th:errors="*{user.age}">Age Error!</label>
+        </div>
+
+        <div class="form-group">
+            <label for="user_birthday" class="col-sm-2 control-label">BirthDay: </label>
+            <div class="col-xs-4">
+                <input type="date" class="form-control" id="user_birthday" name="birthday" th:value="${user.birthday}" th:field="*{user.birthday}"/>
+            </div>
+            <label class="col-sm-2 control-label text-danger" th:if="${#fields.hasErrors('user.birthday')}" th:errors="*{user.birthday}">BirthDay Error!</label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="Submit"/> &nbsp;&nbsp;
+                <input class="btn" type="button" value="Return" onclick="history.back()"/>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

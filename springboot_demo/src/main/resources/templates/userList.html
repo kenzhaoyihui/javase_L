@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>UserList</title>
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+</head>
+<body>
+
+<div class="contentDiv">
+    <h5>Spring boot -- validating form input</h5>
+    <table class="table table-hover table-condensed">
+        <legend>
+            <strong>UserList</strong>
+        </legend>
+        <thead>
+            <tr>
+                <th>USER ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>BirthDay</th>
+                <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${userList}">
+                <th scope="row" th:text="${user.id}"></th>
+                <td><a th:href="@{/users/update/{userId}(userId=${user.id})}" th:text="${user.name}"></a></td>
+                <td th:text="${user.age}"></td>
+                <td th:text="${user.birthday}"></td>
+                <td><a class="btn btn-danger" th:href=@{"/users/delete/{userId}(userId=${user.id})}">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div><a class="btn btn-primary" href="/users/create" role="button">Create User</a></div>
+</div>
+</body>
+</html>
